@@ -1,1 +1,9 @@
 .DS_Store
+
+node_modules
+
+# rollup 打包生成文件
+dist
+
+# jest 覆盖 html 文件
+coverage
