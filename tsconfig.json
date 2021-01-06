@@ -78,7 +78,7 @@
     "node_modules",
     "test",
     "rollup.config.js",
-    "rollup.base.config.js",
+    "rollup.dev.config.js",
     "jest.config.js"
   ]
   
