@@ -29,7 +29,17 @@ const _profiles = (inputDir, outputDir, format) => {
                     plugins: [terser()]
                 }
             }
+
+            const devOption = {
+                input: `${inputDir}/${item}/index.ts`,
+                output: {
+                    file: `${outputDir}/${item}.map.js`,
+                    format: format,
+                }
+            }
+
             profiles.push(config(option))
+            profiles.push(config(devOption))
         }
     })
     return profiles
