@@ -39,7 +39,7 @@ class Queue<T> implements QueueType<T> {
     }
 
     dequeue() {
-        if (this.capactity === 1) {
+        if (this.capactity === 1 || this.capactity === 0) {
             const node = new Node<T>(undefined)
             this.#head!.next = node
             this.capactity = 0
