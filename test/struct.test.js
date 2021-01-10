@@ -41,3 +41,27 @@ test('This is struct queue testing', () => {
     queue.dequeue()
     expect(queue.size()).toBe(0)
 })
+
+test('This is stact stack testing', () => {
+    const stack = new strcut.Stack()
+    expect(stack.size()).toBe(0)
+    expect(stack.isEmpty()).toBe(true)
+    stack.push(1)
+    stack.push(2)
+    let value = []
+    for (val of stack) {
+        value.push(val)
+    }
+    value.sort((a, b) => a - b)
+    expect(value).toEqual([1, 2])
+    stack.pop()
+    value = []
+    for (val of stack) {
+        value.push(val)
+    }
+    expect(value).toEqual([1])
+    expect(stack.size()).toBe(1)
+    expect(stack.isEmpty()).toBe(false)
+    stack.pop()
+    expect(stack.size()).toBe(0)
+})
