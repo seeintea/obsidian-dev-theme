@@ -25,3 +25,13 @@ export interface QueueType<T> {
     isEmpty: () => boolean
     size: () => number
 }
+
+export interface StackType<T> {
+
+    capactity: number
+
+    push: (item: T) => void
+    pop: () => void
+    isEmpty: () => boolean
+    size: () => number
+}
