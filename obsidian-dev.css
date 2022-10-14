@@ -45,6 +45,12 @@
   --common-font-family: "Only Emoji", "Noto Serif SC", sans-serif;
   --common-markdown-text-size: 18px;
   --common-markdown-line-height: 1.8;
+  --common-caret-color: #333;
+  --common-caret-color-code: #fff;
+}
+
+.theme-dark {
+  --common-caret-color: #fff;
 }
 
 html,
@@ -112,12 +118,16 @@ body {
   right: -15px;
 }
 
-.markdown-source-view.mod-cm6 .cm-content {
-  caret-color: #f1f1f1;
-}
-
 .markdown-source-view.mod-cm6 .cm-indent::before {
   border-right-color: rgba(200, 200, 200, 0.3);
+}
+
+.markdown-source-view .cm-line {
+  caret-color: var(--common-caret-color);
+}
+
+.markdown-source-view .HyperMD-codeblock {
+  caret-color: var(--common-caret-color-code);
 }
 
 /* markdown content preview mode */
