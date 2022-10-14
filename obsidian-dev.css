@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code");
 @import url("https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@4.5.11/index.min.css");
-@import url("https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@4.5.10/index.min.css");
 
 @font-face {
   font-family: "Only Emoji";
@@ -11,19 +10,10 @@
   --common-text-size: 16px;
   --common-line-height: 1.6;
   --common-font-family: "Only Emoji", "Noto Serif SC",sans-serif;
-  --common-code-font-family: "Fira Code", monospace;
   --common-markdown-text-size: 18px;
   --common-markdown-line-height: 1.8;
-  --common-code-font-family: "JetBrains Mono";
-  /*  update mini theme */
-  --line-width: 50rem;
-  --h1: 1.85em;
-  --h2: 1.70em;
-  --h3: 1.55em;
-  --h4: 1.40em;
-  --h5: 1.25em;
-  --h6: 1.1em;
 }
+
 
 html,
 body {
@@ -32,75 +22,59 @@ body {
   line-height: var(--common-line-height);
   overscroll-behavior-y: none;
   -webkit-font-smoothing: auto;
+
+  /* update some basic config */
+  --file-line-width: 800px;
+
+  /* code */
+  --code-background: #1f2937;
+  --code-normal: #f1f1f1;
+  --code-comment: #8b949e;
+  --code-function: #d2a8ff;
+  --code-keyword: #ff7b72;
+  --code-string: #a5d6ff;
+  --code-tag: #7ee787;
 }
 
+/* left side bar */
 .nav-folder-title[data-path='/'] { display: none; }
 
-.view-header-title-container { width: 90%; }
+.nav-buttons-container { justify-content: flex-start; }
 
-.view-header-title {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.markdown-preview-view, .popover, .workspace-leaf-content[data-type=markdown]  {
+/* markdown content edit mode */
+.markdown-source-view,
+.markdown-source-view .cm-sizer {
   font-family: var(--common-font-family);
-}
-
-body:not(.plugin-sliding-panes-rotate-header) .app-container .workspace-split.mod-root > .workspace-leaf .view-header {
-  box-shadow: 0 0px 5px 1px rgba(0, 0, 0, 0.1);
-}
-
-.markdown-source-view.mod-cm6.is-live-preview .cm-scroller {
   font-size: var(--common-markdown-text-size);
   line-height: var(--common-markdown-line-height);
 }
 
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
-  border-left: 3px solid #f0f0f0;
-  border-radius: 2px 0 0 2px;
+.cm-s-obsidian span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight) {
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  padding: 3px 5px;
+  background: #f1f1f1;
+  color: #333;
 }
 
-.markdown-preview-view pre, .markdown-source-view.mod-cm6 .cm-preview-code-block pre.dataview-error, .mod-cm6 .cm-editor .HyperMD-codeblock.cm-line, .cm-s-obsidian .HyperMD-codeblock {
-  font-family: var(--common-code-font-family);
-  font-size: 15px;
+.cm-s-obsidian span.cm-inline-code {
+  color: var(--text-muted);
+  font-size: var(--code-size);
+  background-color: #f1f1f1;
+  vertical-align: baseline;
 }
 
-.markdown-source-view.mod-cm6.is-readable-line-width .cm-editor .HyperMD-codeblock.cm-line, .mod-cm6 .cm-editor .HyperMD-codeblock.cm-line {
-  padding: 0 20px;
-  line-height: 24px;
-  background: #2a2d3e;
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
+  padding-left: 25px;
 }
 
+.markdown-source-view.mod-cm6 .cm-line:not(.cm-active):not(.HyperMD-header):not(.HyperMD-task-line) .cm-fold-indicator .collapse-indicator {
+  right: -15px;
+}
 
-.cm-s-obsidian span.cm-inline-code, .markdown-rendered code, .markdown-preview-view code {
-  font-family: var(--common-code-font-family);
-  border-radius: 2px;
-  padding: 0 7px;
+/* markdown content preview mode */
+.markdown-preview-view {
+  font-family: var(--common-font-family);
   font-size: var(--common-markdown-text-size);
-}
-
-.markdown-source-view.mod-cm6 .cm-hmd-codeblock .cm-indent::before {
-  visibility: hidden;
-}
-
-.markdown-source-view.mod-cm6 .cm-keyword {
-  color: #c678dd;
-}
-
-.markdown-source-view.mod-cm6 .cm-def {
-  color: #61aeee;
-}
-
-.mod-cm6 .HyperMD-task-line[data-task] .task-list-item-checkbox {
-  border-radius: 4px;
-  border: 2px solid #106ba3 !important;
-  background-color: transparent !important;
-  height: 16px;
-  width: 16px;
-  cursor: pointer;
-}
-
-.mod-cm6 .HyperMD-task-line[data-task] .task-list-item-checkbox:checked {
-  background-color: #0dcf82 !important;
+  line-height: var(--common-markdown-line-height);
 }
