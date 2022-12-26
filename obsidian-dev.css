@@ -72,6 +72,9 @@ body {
   --code-keyword: #ff7b72;
   --code-string: #a5d6ff;
   --code-tag: #7ee787;
+
+  /* checkbox update */
+  --checkbox-size: 16px;
 }
 
 /* left side bar */
