@@ -95,7 +95,9 @@ body {
 }
 
 .cm-s-obsidian
-  span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight) {
+  span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(
+    .obsidian-search-match-highlight
+  ) {
   border: 1px solid #d9d9d9;
   border-radius: 3px;
   padding: 3px 5px;
@@ -138,4 +140,38 @@ body {
   font-family: var(--common-font-family);
   font-size: var(--common-markdown-text-size);
   line-height: var(--common-markdown-line-height);
+}
+
+.markdown-source-view .HyperMD-header {
+  position: relative;
+}
+
+.markdown-source-view .HyperMD-header::after {
+  color: #999999;
+  position: relative;
+  background: #f1f1f1;
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-size: 10px;
+  margin: 0 0 0 5px;
+  position: absolute;
+}
+
+.markdown-source-view .HyperMD-header-1::after {
+  content: "H1";
+}
+.markdown-source-view .HyperMD-header-2::after {
+  content: "H2";
+}
+.markdown-source-view .HyperMD-header-3::after {
+  content: "H3";
+}
+.markdown-source-view .HyperMD-header-4::after {
+  content: "H4";
+}
+.markdown-source-view .HyperMD-header-5::after {
+  content: "H5";
+}
+.markdown-source-view .HyperMD-header-6::after {
+  content: "H6";
 }
